@@ -12,18 +12,21 @@ class TopNavBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(Strings.location, style: TextStyle(color: AppColors.neutral650, fontSize: 14)),
-            Text(item.location, style: TextStyle(color: AppColors.neutral950, fontSize: 14)),
-          ],
-        ),
-        Expanded(child: Container()),
-        AppIcons.notificationIcon,
-      ],
+    return Padding(
+      padding:  EdgeInsets.only(bottom: 16),
+      child: Row(
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(Strings.location, style: TextStyle(color: AppColors.neutral650, fontSize: 14)),
+              Text(item.location, style: TextStyle(color: AppColors.neutral950, fontSize: 14)),
+            ],
+          ),
+          Expanded(child: Container()),
+          AppIcons.notificationIcon,
+        ],
+      ),
     );
   }
 }
