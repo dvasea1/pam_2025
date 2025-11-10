@@ -50,7 +50,9 @@ class _MyHomePageState extends State<MyHomePage> {
             itemBuilder: (BuildContext context, int index) {
               var item = controller.items[index];
               if (item is NavBarListItem) {
-                return TopNavBarWidget(item: item);
+                return TopNavBarWidget(item: item, onTap: (){
+                  controller.changeName();
+                },);
               } else if (item is SearchBarListItem) {
                 return SearchBarWidget(item: item);
               } else if (item is SectionItem) {

@@ -6,14 +6,15 @@ import 'package:pam_2025/resources/strings.dart';
 import '../resources/app_icons.dart';
 
 class TopNavBarWidget extends StatelessWidget {
-  const TopNavBarWidget({super.key, required this.item});
+  const TopNavBarWidget({super.key, required this.item, required this.onTap});
 
   final NavBarListItem item;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:  EdgeInsets.only(bottom: 16),
+      padding: EdgeInsets.only(bottom: 16),
       child: Row(
         children: [
           Column(
@@ -24,7 +25,7 @@ class TopNavBarWidget extends StatelessWidget {
             ],
           ),
           Expanded(child: Container()),
-          AppIcons.notificationIcon,
+          InkWell(onTap: onTap, child: AppIcons.notificationIcon),
         ],
       ),
     );
