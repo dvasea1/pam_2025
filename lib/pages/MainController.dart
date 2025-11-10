@@ -73,6 +73,8 @@ class MainController extends GetxController {
     fullName.value = "Vasile";
   }
 
+
+
   @override
   void onInit() {
     super.onInit();
