@@ -35,6 +35,9 @@ dependencies:
   svg_flutter:
   domain:
     path: ../domain
+  di:
+    path: ../di
+  get_it: 
 
 
 

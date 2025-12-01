@@ -3,6 +3,7 @@ import 'dart:convert';
 
 import 'package:domain/use_cases/get_home_use_case.dart';
 import 'package:get/get.dart';
+import 'package:pam_2025/base/base_get_x_controller.dart';
 import 'package:pam_2025/list_items/banner_list_item.dart';
 import 'package:pam_2025/list_items/banner_view_pager_item.dart';
 import 'package:pam_2025/list_items/categories_carousel_item.dart';
@@ -15,9 +16,9 @@ import 'package:pam_2025/resources/strings.dart';
 
 import '../list_items/nav_bar_list_item.dart';
 
-class MainController extends GetxController {
-  final GetHomeUseCase getHomeUseCase;
-  MainController({required this.getHomeUseCase});
+class MainController extends BaseGetXController {
+
+   GetHomeUseCase getHomeUseCase()=> getIt.get<GetHomeUseCase>();
 
   RxList<ListItem> items = RxList();
   Rx<String> fullName = Rx("Ion");
@@ -50,7 +51,7 @@ class MainController extends GetxController {
   }
 
   void addItems() async {
-   var  homeData = await getHomeUseCase.call();
+   var  homeData = await getHomeUseCase().call();
 
     print('response : ${homeData.location}');
 

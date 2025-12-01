@@ -1,3 +1,4 @@
+import 'package:data/mappers/user_model_extension.dart';
 import 'package:data/services/user_service.dart';
 import 'package:domain/entities/user_entity.dart';
 import 'package:domain/repositories/user_repository.dart';
@@ -12,9 +13,15 @@ class UserRepositoryImpl implements UserRepository {
     var userResponse = await userService.getUsers();
     return userResponse.users
         .map(
-          (e) =>
-              UserEntity(id: e.id, fistName: e.fistName, lastName: e.lastName, email: e.email, avatarUrl: e.avatarUrl),
-        )
+          (e) => e.toEntity,
+    )
         .toList();
   }
+
+  @override
+  Future<UserEntity> getUser(int id) async {
+    var user = await userService.getUser(id);
+    return user.toEntity;
+  }
+
 }

@@ -16,15 +16,13 @@ class UserResponse {
 @JsonSerializable()
 class UserModel {
   final int id;
-  final String fistName;
-  final String lastName;
+  final String fullName;
   final String email;
   final String avatarUrl;
 
   UserModel({
     required this.id,
-    @JsonKey(name: 'firstName') required this.fistName,
-    required this.lastName,
+    @JsonKey(name: 'fullName') required this.fullName,
     required this.email,
     @JsonKey(name: 'image') required this.avatarUrl,
   });

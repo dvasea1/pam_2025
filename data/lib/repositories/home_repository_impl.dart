@@ -1,9 +1,14 @@
+import 'dart:convert';
+
+import 'package:data/mappers/home_extension.dart';
 import 'package:domain/entities/home_entity.dart';
 import 'package:domain/repositories/home_repository.dart';
 
+import '../models/home_response.dart';
+
 class HomeRepositoryImpl implements HomeRepository {
   @override
-  Future<HomeEntity> getHomeData() {
+  Future<HomeEntity> getHomeData() async {
 
     String json = '''
 {
@@ -40,9 +45,9 @@ class HomeRepositoryImpl implements HomeRepository {
 ]
 }
    ''';
-    //HomeResponse response = HomeResponse.fromJson(jsonDecode(json));
-    // TODO: implement getHomeData
-    throw UnimplementedError();
+
+    HomeResponse response = HomeResponse.fromJson(jsonDecode(json));
+    return response.toEntity;
   }
 
 }

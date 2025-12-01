@@ -28,7 +28,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
-    Get.lazyPut(() => MainController(getHomeUseCase: null));
+    Get.lazyPut(() => MainController());
   }
 
   @override
@@ -59,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 return SectionWidget(
                   item: item,
                   onTap: (String tag) {
-                    print('ontap section: $tag');
+                   // print('ontap section: $tag');
                   },
                 );
               } else if (item is CategoriesCarouselItem) {

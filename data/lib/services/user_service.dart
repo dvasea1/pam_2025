@@ -11,6 +11,9 @@ abstract class UserService {
 
   @GET('/users')
   Future<UserResponse> getUsers();
+
+  @GET('/users/{id}')
+  Future<UserModel> getUser(@Path("id") int id);
 }
 
 

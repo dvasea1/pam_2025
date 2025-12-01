@@ -15,7 +15,7 @@ class _UserPageState extends State<UserPage> {
   @override
   void initState() {
     super.initState();
-    Get.put(UsersController(getUsersUseCase: null));
+    Get.put(UsersController());
     UsersController controller = Get.find();
     controller.getUsers();
   }
